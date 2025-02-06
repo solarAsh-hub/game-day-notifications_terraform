@@ -111,7 +111,7 @@ resource "aws_iam_role_policy_attachment" "attach_logging" {
 
 # Lambda Function
 resource "aws_lambda_function" "nba_lambda" {
-  filename      = "nba_lambda.zip"  # Pre-packaged ZIP
+  filename      = "nba_notifications.zip"  # Pre-packaged ZIP
   function_name = "nba_game_alerts"
   role          = aws_iam_role.lambda_role.arn
   handler       = "nba_notifications.lambda_handler"
