@@ -88,15 +88,21 @@ terraform apply
 terraform destory
 ```
 
+### **Add Subscriptions to the SNS Topic**
+1. After creating the topic, head on the SNS topic name.
+2. Navigate to the Subscriptions tab and click Create subscription.
+3. Select a Protocol:
+- For Email:
+  - Choose Email.
+  - Enter a valid email address.
+- For SMS (phone number):
+  - Choose SMS.
+  - Enter a valid phone number in international format (e.g., +1234567890).
+
 4. Click Create Subscription.
 5. If you added an Email subscription:
 - Check the inbox of the provided email address.
 - Confirm the subscription by clicking the confirmation link in the email.
-6. For SMS, the subscription will be immediately active after creation.
-
-
-
-
 
 ### **Test the System**
 1. Open the Lambda function in the AWS Management Console.
@@ -110,9 +116,4 @@ terraform destory
 2. Securing AWS services with least privilege IAM policies.
 3. Automating workflows using EventBridge.
 4. Integrating external APIs into cloud-based workflows.
-
-
-### **Future Enhancements**
-1. Add NFL score alerts for extended functionality.
-2. Store user preferences (teams, game types) in DynamoDB for personalized alerts.
-3. Implement a web UI
+5. Automated the entier solution with Infrastructure as Code tool Terraform
