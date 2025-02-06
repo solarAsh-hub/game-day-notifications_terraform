@@ -48,9 +48,19 @@ def format_game_data(game):
             f"Details are unavailable at the moment.\n"
         )
 
+
+def get_secret():
+    ssm = boto3.client("ssm", region_name="us-east-1")
+    response = ssm.get_parameter(Name="nba-api-key", WithDecryption=True)
+    return response["Parameter"]["Value"]
+
+
 def lambda_handler(event, context):
     # Get environment variables
-    api_key = os.getenv("NBA_API_KEY")
+    api_key = get_secret()
+    if not api_key:
+        return {"statusCode": 500, "body": "API key retrieval failed"}
+    
     sns_topic_arn = os.getenv("SNS_TOPIC_ARN")
     sns_client = boto3.client("sns")
     
