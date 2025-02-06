@@ -54,6 +54,8 @@ resource "aws_iam_role_policy_attachment" "attach_sns_publish" {
 }
 
 
+data "aws_caller_identity" "current" {}
+
 # IAM Policy to Read From Parameter Store
 resource "aws_iam_policy" "ssm_policy" {
   name        = "ssm_parameter_access"
@@ -66,7 +68,7 @@ resource "aws_iam_policy" "ssm_policy" {
     {
       "Effect": "Allow",
       "Action": "ssm:GetParameter",
-      "Resource": "arn:aws:ssm:us-east-1:ACCOUNT_ID:parameter/nba-api-key"
+      "Resource": "arn:aws:ssm:us-east-1:${data.aws_caller_identity.current.account_id}:parameter/nba-api-key"
     }
   ]
 }
@@ -111,7 +113,7 @@ resource "aws_iam_role_policy_attachment" "attach_logging" {
 
 # Lambda Function
 resource "aws_lambda_function" "nba_lambda" {
-  filename      = "nba_notifications.zip"  # Pre-packaged ZIP
+  filename      = "nba_notifications.zip" # Pre-packaged ZIP
   function_name = "nba_game_alerts"
   role          = aws_iam_role.lambda_role.arn
   handler       = "nba_notifications.lambda_handler"
@@ -127,7 +129,7 @@ resource "aws_lambda_function" "nba_lambda" {
 # EventBridge Rule for Scheduling
 resource "aws_cloudwatch_event_rule" "nba_schedule" {
   name                = "nba_game_alerts_schedule"
-  schedule_expression = "rate(2 hour)" # Adjust as needed
+  schedule_expression = "rate(2 hours)" # Adjust as needed
 }
 
 # EventBridge Target
