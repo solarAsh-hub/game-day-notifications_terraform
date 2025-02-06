@@ -119,7 +119,6 @@ resource "aws_lambda_function" "nba_lambda" {
 
   environment {
     variables = {
-      NBA_API_KEY   = "your-api-key"
       SNS_TOPIC_ARN = aws_sns_topic.nba_game_alerts.arn
     }
   }
