@@ -57,33 +57,33 @@ cd game-day-notifications
 ```
 
 ### **Store API Key as secret in Parameter story**
-1. Run this aws cli command wit h your api key to store it in Paremeter store
+1. Run this aws cli command with your api key to store it in Paremeter store
 ```bash
 aws ssm put-parameter --name "nba-api-key" --value "<API_KEY>" --type "SecureString"
 ```
 
 ### **Run Terraform commands**
-1. Initialize providers and local backend
+1. Initialize Terraform directory, provider plugins and set up local backend
 ```bash
 terraform init
 ```
-2. Navigate to the Subscriptions tab and click Create subscription.
+2. Format Terraform config files to make it clean, readable, and follow best practices.
 ```bash
 terraform fmt
 ```
-3. Navigate to the Subscriptions tab and click Create subscription.
+3. Check Terraform configuration for syntax errors and correctness
 ```bash
 terraform validate
 ```
-4. Navigate to the Subscriptions tab and click Create subscription.
+4. Show preview of changes Terraform will make to your infrastructure before applying them
 ```bash
 terraform plan
 ```
-5. Navigate to the Subscriptions tab and click Create subscription.
+5. Create or update the infrastructure based on the Terraform configuration.
 ```bash
 terraform apply
 ```
-6. Navigate to the Subscriptions tab and click Create subscription.
+6. Remove all resources defined in your Terraform configuration.
 ```bash
 terraform destory
 ```
