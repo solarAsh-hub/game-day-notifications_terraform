@@ -1,4 +1,4 @@
-# NBA Game Day Notifications / Sports Alerts System
+# Game Day Notifications / Sports Alerts System
 
 ## **Project Overview**
 This project is an alert system that sends real-time NBA game day score notifications to subscribed users via SMS/Email. It leverages **Amazon SNS**, **AWS Lambda and Python**, **Amazon EvenBridge** and **NBA APIs** to provide sports fans with up-to-date game information. The project demonstrates how we can use Infrastructure as Code by leveraging Terraform to automate the deployement and destruction of this solution in seconds.
