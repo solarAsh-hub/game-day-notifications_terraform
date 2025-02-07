@@ -56,7 +56,7 @@ git clone https://github.com/ifeanyiro9/game-day-notifications.git
 cd game-day-notifications
 ```
 
-### **Store API Key as secret in Parameter story**
+### **Store API Key as secret in Parameter store**
 1. Run this aws cli command with your api key to store it in Paremeter store
 ```bash
 aws ssm put-parameter --name "nba-api-key" --value "<API_KEY>" --type "SecureString"
