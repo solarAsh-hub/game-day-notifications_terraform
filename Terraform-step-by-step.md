@@ -15,8 +15,7 @@ Before you begin, ensure you have the following installed and configured:
 # Setup Instructions
 
 ## 1. Navigate to the Terraform Directory
-
-![image](https://github.com/user-attachments/assets/362d09c4-e8ab-421f-a2c8-7df9ab034300)
+![image](https://github.com/user-attachments/assets/d9022ad9-5278-4e32-b9de-957d9db72d83)
 
 ``` bash
 cd game-day-notifications-terraform
@@ -28,14 +27,14 @@ cd game-day-notifications-terraform
 
 - Navigate to your API keys section and copy the API key
 
-![image](https://github.com/user-attachments/assets/3d72167c-4d1c-450b-9bb6-e77faf397bda)
+![image](https://github.com/user-attachments/assets/362d09c4-e8ab-421f-a2c8-7df9ab034300)
 
 
 ## 3. Store API Key in AWS Systems Manager Parameter Store
 
 - Run the following AWS CLI command to store your API key securely:
 
-![image](https://github.com/user-attachments/assets/20a3f9d3-fe67-417b-867a-06af7b7ca71d)
+![image](https://github.com/user-attachments/assets/346aa07c-4481-406e-b6b4-ba8d5360ead2)
 ``` bash 
 aws ssm put-parameter --name "nba-api-key" --value "YOUR_API_KEY_HERE" --type "SecureString"
 ```
